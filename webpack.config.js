@@ -15,7 +15,7 @@ module.exports = {
     resolve: {
         extensions: [".tsx", ".ts", ".js"],
         alias: {
-            "react-lang": path.join(__dirname, "./src")
+            "@ipno/react-lang": path.join(__dirname, "./src")
         }
     },
     output: {

@@ -24,7 +24,7 @@
         "moduleResolution": "node",
         "baseUrl": "./",
         "paths": {
-            "react-lang/*": ["src/*"]
+            "@ipno/react-lang/*": ["src/*"]
         }
     },
     "include": ["src"],
