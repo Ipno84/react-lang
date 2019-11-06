@@ -1,4 +1,4 @@
-import TranslationContext from "./TranslationContext";
+import TranslationContext from "../context/TranslationContext";
 import { useContext } from "react";
 
 export default function useAvailableLanguagesSelector() {

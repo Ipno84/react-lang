@@ -1,0 +1,14 @@
+# standard ignores
+node_modules/
+.gitignore
+.npmignore
+*.log
+*-lock.*
+*.lock
+*.ts
+
+# ignore src
+src/
+
+# ignore examples
+examples/*

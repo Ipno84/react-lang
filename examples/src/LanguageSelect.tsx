@@ -1,6 +1,6 @@
 import React from "react";
-import useAvailableLanguagesSelector from "react-lang/useAvailableLanguagesSelector";
-import useCurrentLanguageSelector from "react-lang/useCurrentLanguageSelector";
+import useAvailableLanguagesSelector from "react-lang/hooks/useAvailableLanguagesSelector";
+import useCurrentLanguageSelector from "react-lang/hooks/useCurrentLanguageSelector";
 
 const LanguageSelect: React.FC = () => {
     const availableLanguages = useAvailableLanguagesSelector();

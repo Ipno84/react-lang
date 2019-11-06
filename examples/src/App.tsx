@@ -1,12 +1,11 @@
 import LanguageSelect from "./LanguageSelect";
 import React from "react";
-import TranslationContext from "react-lang/TranslationContext";
-import Translator from "react-lang/Translator";
-import useTranslationReducer from "react-lang/useTranslationReducer";
+import TranslationContext from "react-lang/context/TranslationContext";
+import Translator from "react-lang/components/Translator";
+import useTranslationReducer from "react-lang/hooks/useTranslationReducer";
 
 const App: React.FC = () => {
     const [state, dispatch] = useTranslationReducer();
-    console.log("test");
     return (
         <TranslationContext.Provider value={{ state, dispatch }}>
             <section style={{ marginTop: "4rem" }}>

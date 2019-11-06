@@ -1,6 +1,6 @@
 import { GenericObject } from "interfaces";
-import TranslationContext from "./TranslationContext";
-import get from "./helpers/get";
+import TranslationContext from "../context/TranslationContext";
+import get from "../helpers/get";
 import { useContext } from "react";
 
 interface Args {
@@ -38,7 +38,6 @@ export default function useTranslationSelector({ s, l, vs }: Args) {
         }
         return translation;
     } catch (error) {
-        console.warn(error.message);
         return null;
     }
 }
