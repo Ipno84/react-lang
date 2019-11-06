@@ -1,8 +1,8 @@
 import LanguageSelect from "./LanguageSelect";
 import React from "react";
-import TranslationContext from "react-lang/context/TranslationContext";
-import Translator from "react-lang/components/Translator";
-import useTranslationReducer from "react-lang/hooks/useTranslationReducer";
+import TranslationContext from "./../../src/context/TranslationContext";
+import Translator from "./../../src/components/Translator";
+import useTranslationReducer from "./../../src/hooks/useTranslationReducer";
 
 const App: React.FC = () => {
     const [state, dispatch] = useTranslationReducer();
