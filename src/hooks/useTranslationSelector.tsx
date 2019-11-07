@@ -22,7 +22,7 @@ export default function useTranslationSelector({ s, l, vs }: Args) {
     }
     try {
         let translation = get(m, s);
-        if (typeof translation !== "string") {
+        if (typeof translation !== "string" || translation === "") {
             throw new Error(`Translation for ${s} not well formatted. You are trying to render ${JSON.stringify(translation)}`);
         }
         const parentesisRegex = /({[^\}]+})/;
@@ -38,6 +38,7 @@ export default function useTranslationSelector({ s, l, vs }: Args) {
         }
         return translation;
     } catch (error) {
+        console.warn(error.message);
         return null;
     }
 }
