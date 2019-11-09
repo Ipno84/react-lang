@@ -1,13 +1,11 @@
 import LanguageSelect from "./LanguageSelect";
 import React from "react";
-import TranslationContext from "./../../src/context/TranslationContext";
+import TranslationProvider from "./../../src/providers/TranslationProvider";
 import Translator from "./../../src/components/Translator";
-import useTranslationReducer from "./../../src/hooks/useTranslationReducer";
 
 const App: React.FC = () => {
-    const [state, dispatch] = useTranslationReducer();
     return (
-        <TranslationContext.Provider value={{ state, dispatch }}>
+        <TranslationProvider>
             <section style={{ marginTop: "4rem" }}>
                 <h3>Here's a plain translation</h3>
                 <Translator s="Translations.Plain" />
@@ -33,7 +31,7 @@ const App: React.FC = () => {
                 <Translator s="Translations.WithVariablesArray" l="es" vs={["Puerco dios"]} />
             </section>
             <LanguageSelect />
-        </TranslationContext.Provider>
+        </TranslationProvider>
     );
 };
 

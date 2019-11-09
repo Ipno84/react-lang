@@ -1,6 +1,7 @@
 import { PREFIX, SET_LANG, SET_MESSAGES } from "./constants";
 
 import TranslationContext from "./context/TranslationContext";
+import TranslationProvider from "./providers/TranslationProvider";
 import Translator from "./components/Translator";
 import get from "./helpers/get";
 import useAvailableLanguagesSelector from "./hooks/useAvailableLanguagesSelector";
@@ -13,6 +14,7 @@ export {
     SET_LANG,
     SET_MESSAGES,
     TranslationContext,
+    TranslationProvider,
     get,
     useAvailableLanguagesSelector,
     useCurrentLanguageSelector,
