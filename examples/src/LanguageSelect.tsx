@@ -6,15 +6,7 @@ const LanguageSelect: React.FC = () => {
     const availableLanguages = useAvailableLanguagesSelector();
     const { currentLanguage, setLang } = useCurrentLanguageSelector();
     return (
-        <select
-            value={currentLanguage}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setLang(e.target.value)}
-            style={{
-                position: "fixed",
-                top: "1rem",
-                right: "1rem"
-            }}
-        >
+        <select value={currentLanguage} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setLang(e.target.value)}>
             {availableLanguages.map(lang => (
                 <option key={lang} value={lang}>
                     {lang}

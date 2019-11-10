@@ -1,5 +1,4 @@
 import React from "react";
-import { State } from "interfaces";
 import TranslationContext from "./../context/TranslationContext";
 import { defaultState } from "./../hooks/useTranslationReducer";
 import useTranslationReducer from "./../hooks/useTranslationReducer";

@@ -4,9 +4,14 @@
     "description": "",
     "main": "lib/index.js",
     "scripts": {
-        "start:dev": "webpack --config webpack.config.js -d --watch",
         "start": "webpack-dev-server",
-        "build": "rm -rf ./lib && tsc -p tsconfig.production.json && npm pack && npm publish",
+        "clean:es5": "rimraf lib",
+        "clean:es6": "rimraf es",
+        "clean": "npm run clean:es5 && npm run clean:es6",
+        "build:es5": "npm run clean:es5 && tsc -p tsconfig.production.es5.json",
+        "build:es6": "npm run clean:es6 && tsc -p tsconfig.production.es6.json",
+        "build": "npm run build:es5 && npm run build:es6",
+        "release": "npm run clean && tsc -p tsconfig.production.json && npm pack && npm publish",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
@@ -29,14 +34,19 @@
     "devDependencies": {
         "@types/react": "^16.9.11",
         "@types/react-dom": "^16.9.4",
+        "jest": "^24.9.0",
+        "react": "^16.8.0",
+        "react-dom": "^16.8.0",
+        "react-is": "^16.11.0",
+        "rimraf": "^3.0.0",
         "ts-loader": "^6.2.1",
         "typescript": "^3.7.2",
         "webpack": "^4.41.2",
         "webpack-cli": "^3.3.10",
         "webpack-dev-server": "^3.9.0"
     },
-    "dependencies": {
-        "react": "^16.11.0",
-        "react-dom": "^16.11.0"
+    "peerDependencies": {
+        "react": "^16.8.0",
+        "react-dom": "^16.8.0"
     }
 }

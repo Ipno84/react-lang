@@ -1,6 +1,5 @@
 import { useCallback, useContext } from "react";
 
-import { GenericObject } from "interfaces";
 import { SET_MESSAGES } from "../constants";
 import TranslationContext from "../context/TranslationContext";
 
