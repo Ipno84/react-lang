@@ -1,4 +1,3 @@
-import { GenericObject } from "interfaces";
 import React from "react";
 import TranslationContext from "../context/TranslationContext";
 import get from "../helpers/get";

@@ -1,6 +1,5 @@
 import { SET_LANG, SET_MESSAGES } from "../constants";
 
-import { State } from "interfaces";
 import { useReducer } from "react";
 
 export const defaultState =

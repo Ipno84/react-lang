@@ -7,9 +7,12 @@ node_modules/
 *.lock
 *.ts
 *.tgz
+.vscode/
+tsconfig.*
+webpack.*
 
 # ignore src
 src/
 
 # ignore examples
-examples/*
+examples/

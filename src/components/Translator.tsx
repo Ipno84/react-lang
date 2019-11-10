@@ -1,6 +1,5 @@
 import React, { memo, useMemo } from "react";
 
-import { GenericObject } from "interfaces";
 import useTranslationSelector from "../hooks/useTranslationSelector";
 
 interface Props {

@@ -1,4 +1,3 @@
-import { GenericObject } from "interfaces";
 /**
  * Function for getting object property value from an object using a dotted string
  * It has been developed to avoid lodash/get dependency
