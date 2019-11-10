@@ -1,8 +1,8 @@
 import React from "react";
 import { State } from "interfaces";
-import TranslationContext from "./../../src/context/TranslationContext";
+import TranslationContext from "./../context/TranslationContext";
 import { defaultState } from "./../hooks/useTranslationReducer";
-import useTranslationReducer from "./../../src/hooks/useTranslationReducer";
+import useTranslationReducer from "./../hooks/useTranslationReducer";
 
 interface Props {
     initialState?: State;

@@ -13,7 +13,13 @@
         "type": "git",
         "url": "git+https://Ipno84@github.com/Ipno84/react-lang.git"
     },
-    "keywords": [],
+    "keywords": [
+        "react",
+        "language",
+        "localization",
+        "lang",
+        "i18n"
+    ],
     "author": "",
     "license": "ISC",
     "bugs": {
