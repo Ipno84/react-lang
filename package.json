@@ -6,7 +6,7 @@
     "scripts": {
         "start:dev": "webpack --config webpack.config.js -d --watch",
         "start": "webpack-dev-server",
-        "build": "rm -rf ./lib && tsc -p tsconfig.production.json && npm pack",
+        "build": "rm -rf ./lib && tsc -p tsconfig.production.json && npm pack && npm publish",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
