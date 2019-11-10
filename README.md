@@ -23,27 +23,21 @@ This module is based on react hooks so you need react@16.8.0 at least to make it
 
 ### Step 1 - Include Provider
 
-Wrap your application with the Provider using one of the import methods below
-
-> import TranslationProvider from "react-lang/providers/TranslationProvider";
-> or
-> import { TranslationProvider } from "react-lang";
-
-    const App = ({children}) => {
-    	return <TranslationProvider>{children}</TranslationProvider>
-    }
+Wrap your application with the [Provider](#translationprovider)
 
 ### Step 2 - Set data
 
 If you don't set translation data (current language and translation messages) you won't have nothing to show to your user. You can choose to load default data or you can set them later.
 At the application bootstrap default data will be set as you can see in the object below if you don't set default ones.
 
-    {
-        l: "en",
-        m: {
-    	    en: {}
-    	}
+```js
+{
+    l: "en",
+    m: {
+        en: {}
     }
+}
+```
 
 > **_l_**: is a string and indicates the current language (en, english by default)
 > **_m_**: is an object that contains nested objects with the localized strings your application need. As you can see in the default object,
@@ -59,17 +53,37 @@ If you don't want to set data using the methods above you can also use the hooks
 
 ### Step 3 - Translator Component
 
-The _Translator_ Component is the most easiest way to render localized strings because it's ready to use and already optimized, but you can use your own ways. The library expose all the methods you need to implements your own hooks and components.
+The [_Translator_](#translator) Component is the most easiest way to render localized strings because it's ready to use and already optimized, but you can use your own ways. The library expose all the methods you need to implements your own hooks and components.
 
 ## Components
+
+### TranslationProvider
+
+TranslationProvider allow you to create you application translation context and to set initial data. It can be included in your app entry point using the imports below
+
+```jsx
+import { TranslationProvider } from "react-lang";
+import TranslationProvider from "react-lang/providers/TranslationProvider";
+```
+
+You can also pass an initial state to your TranslationProvider in order to start your application with everything you need to localize your strings.
+
+```jsx
+import initialTranslationState from "path/to/initialTranslationState";
+
+const App = ({ children }) => {
+    return <TranslationProvider initialState={initialTranslationState}>{children}</TranslationProvider>;
+};
+```
 
 ### Translator
 
 If you choose the Translator Component way to render you localized strings, here's how you can include it into you react application.
 
-> import Translator from "react-lang/components/Translator";
-> or
-> import Translator from "react-lang";
+```jsx
+import Translator from "react-lang/components/Translator";
+import Translator from "react-lang";
+```
 
 Translator component accepts 3 props
 
@@ -82,58 +96,56 @@ Translator component accepts 3 props
 
 Below you can see how to use Translator Component using this state
 
-    {
-        l: "en",
-        m: {
-    	    en: {
-    		    Translations: {
-    			    Plain: "Plain Translation",
-    			    WithVariables: "Translation with variable for {name}",
-    			    WithVariablesArray: "Translation with variable array for {0}"
-    		    }
-    	    },
-    	    es: {
-    	    Translations: {
-    		    Plain: "Plana Traduccion",
-    		    WithVariables: "Traduccion con variable por {name}",
-    		    WithVariablesArray: "Traduccion con variable array por {0}"
-    	    }
+```js
+{
+    l: "en",
+    m: {
+        en: {
+            Translations: {
+                Plain: "Plain Translation",
+                WithVariables: "Translation with variable for {name}",
+                WithVariablesArray: "Translation with variable array for {0}"
+            }
+        },
+        es: {
+        Translations: {
+            Plain: "Plana Traduccion",
+            WithVariables: "Traduccion con variable por {name}",
+            WithVariablesArray: "Traduccion con variable array por {0}"
         }
     }
+}
+```
 
 **Plain Translation**
 
-    <Translator
-        s="Translations.Plain"
-    />
+```jsx
+<Translator s="Translations.Plain" />
+```
 
 **Plain translation with forced language**
 
-    <Translator
-        s="Translations.Plain"
-        l="es"
-    />
+```jsx
+<Translator s="Translations.Plain" l="es" />
+```
 
 **With variables as Object**
 
-    <Translator
-        s="Translations.WithVariables"
-        vs={{ name: "Marco" }}
-    />
+```jsx
+<Translator s="Translations.WithVariables" vs={{ name: "Marco" }} />
+```
 
 **With variables as Array**
 
-    <Translator
-        s="Translations.WithVariablesArray"
-        vs={["Marco"]}
-    />
+```jsx
+<Translator s="Translations.WithVariablesArray" vs={["Marco"]} />
+```
 
 **Plain translation with fallback**
 
-    <Translator
-        s="Translations.PlainE"
-        fs="Plain Translation"
-    />
+```jsx
+<Translator s="Translations.PlainE" fs="Plain Translation" />
+```
 
 # Hooks
 
@@ -145,33 +157,40 @@ A hook that implements a selector from TranslationContext. It is used to get all
 
 A hook used to get the currently used language. It returns also a method to set current language. It returns an object containing _currentLanguage_ property and setLang, a method that you can use to set a new language
 
-    const LanguageSelect = () => {
-        const availableLanguages = useAvailableLanguagesSelector();
-        const { currentLanguage, setLang } = useCurrentLanguageSelector();
-        return (
-    	    <select
-    		    value={currentLanguage}
-    		    onChange={(e) => setLang(e.target.value)}
-    		>
-    		    {availableLanguages.map(lang => (
-    			    <option key={lang} value={lang}>{lang}</option>
-    		    ))}
-    	    </select>
-        );
-    };
+```jsx
+const LanguageSelect = () => {
+    const availableLanguages = useAvailableLanguagesSelector();
+    const { currentLanguage, setLang } = useCurrentLanguageSelector();
+    return (
+        <select value={currentLanguage} onChange={e => setLang(e.target.value)}>
+            {availableLanguages.map(lang => (
+                <option key={lang} value={lang}>
+                    {lang}
+                </option>
+            ))}
+        </select>
+    );
+};
+```
 
 ## useCurrentMessagesSelector
 
 A hook used to get the currently used messages. It returns also a method to set messages.
 
-    const MessagesSetter = ({messages}) => {
-    	const { currentMessages, setMessages } = useCurrentMessagesSelector();
-    	return <Button type="button" onClick={() => setMessages(messages)}>Set Messages</Button>
-    }
+```jsx
+const MessagesSetter = ({ messages }) => {
+    const { currentMessages, setMessages } = useCurrentMessagesSelector();
+    return (
+        <Button type="button" onClick={() => setMessages(messages)}>
+            Set Messages
+        </Button>
+    );
+};
+```
 
 ## useTranslationReducer
 
-A reducer hook for handling localization data. It is used in TranslationProvider component and accept initialState as argument. It returns [state, dispatch]
+A reducer hook for handling localization data. It is used in [TranslationProvider](#translationprovider) component and accept initialState as argument. It returns [state, dispatch]
 
 ## useTranslationSelector
 
