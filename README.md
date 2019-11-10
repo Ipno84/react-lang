@@ -205,3 +205,9 @@ Someone of you is asking to himself "why do I have to use this library for manag
 -   It's simple
 
 I will accept any contribute in terms of coding or any suggestion about how to improve this module.
+
+# To do
+
+-   [x] Typings
+-   [x] Documentation
+-   [ ] Test (Jest)
