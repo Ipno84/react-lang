@@ -1,6 +1,6 @@
 {
     "name": "@ipno/react-lang",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "React library for manage app localization.",
     "main": "./lib/index.js",
     "module": "es/index.js",
