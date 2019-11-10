@@ -1,8 +1,9 @@
 {
     "name": "@ipno/react-lang",
     "version": "1.0.1",
-    "description": "",
-    "main": "lib/index.js",
+    "description": "React library for manage app localization.",
+    "main": "./lib/index.js",
+    "module": "es/index.js",
     "scripts": {
         "start": "webpack-dev-server",
         "clean:es5": "rimraf lib",
@@ -11,9 +12,16 @@
         "build:es5": "npm run clean:es5 && tsc -p tsconfig.production.es5.json",
         "build:es6": "npm run clean:es6 && tsc -p tsconfig.production.es6.json",
         "build": "npm run build:es5 && npm run build:es6",
-        "release": "npm run clean && tsc -p tsconfig.production.json && npm pack && npm publish",
+        "prepare": "npm run build",
+        "packish": "npm pack && npm publish",
+        "release": "release-it --dry-run",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
+    "files": [
+        "lib",
+        "src",
+        "es"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://Ipno84@github.com/Ipno84/react-lang.git"
@@ -38,6 +46,7 @@
         "react": "^16.8.0",
         "react-dom": "^16.8.0",
         "react-is": "^16.11.0",
+        "release-it": "^12.4.3",
         "rimraf": "^3.0.0",
         "ts-loader": "^6.2.1",
         "typescript": "^3.7.2",

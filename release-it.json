@@ -1,0 +1,32 @@
+{
+    "hooks": {},
+    "git": {
+        "changelog": "git log --pretty=format:\"* %s (%h)\" ${latestTag}...HEAD",
+        "requireCleanWorkingDir": true,
+        "requireUpstream": true,
+        "requireCommits": false,
+        "addUntrackedFiles": false,
+        "commit": true,
+        "commitMessage": "Release ${version}",
+        "commitArgs": "",
+        "tag": true,
+        "tagName": "${version}",
+        "tagAnnotation": "Release ${version}",
+        "tagArgs": "",
+        "push": true,
+        "pushArgs": "--follow-tags",
+        "pushRepo": "origin"
+    },
+    "github": {
+        "release": true,
+        "releaseName": "Release ${version}",
+        "releaseNotes": null,
+        "preRelease": false,
+        "draft": false,
+        "tokenRef": "9bd3f57e063e77f9b00342372c6dfcc3ef6279a6",
+        "assets": null,
+        "host": null,
+        "timeout": 0,
+        "proxy": null
+    }
+}
