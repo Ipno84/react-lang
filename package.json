@@ -13,8 +13,7 @@
         "build:es6": "npm run clean:es6 && tsc -p tsconfig.production.es6.json",
         "build": "npm run build:es5 && npm run build:es6",
         "prepare": "npm run build",
-        "packish": "npm pack && npm publish",
-        "release": "release-it --dry-run",
+        "release": "npm pack && npm publish",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "files": [
@@ -46,7 +45,6 @@
         "react": "^16.8.0",
         "react-dom": "^16.8.0",
         "react-is": "^16.11.0",
-        "release-it": "^12.4.3",
         "rimraf": "^3.0.0",
         "ts-loader": "^6.2.1",
         "typescript": "^3.7.2",
